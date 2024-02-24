@@ -3,12 +3,27 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  /*background-color: #282c34;*/
+  background-color: #d0e0e3;
+  /* background-color: #ffe7dc; */
+
+
   min-height: 8vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(1px + 2vmin);
-  color: white;
+  color: black;
+}
+
+.lower{
+  background-color: aqua;
+}
+.brief-background{
+  background-color: #d0e0e3 ;
+}
+
+.verbose-background{
+  background-color: #ffe7dc ;
 }

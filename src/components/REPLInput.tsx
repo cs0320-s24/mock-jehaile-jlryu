@@ -1,9 +1,10 @@
 import '../styles/main.css';
+import '../styles/app.css';
 import { Dispatch, SetStateAction, useState} from 'react';
 import { ControlledInput } from './ControlledInput';
 
 interface REPLInputProps{
-  // TODO: Fill this with desired props... Maybe something to keep track of the submitted commands
+
   history: string[]; //keep track of every single command
   setHistory: Dispatch<SetStateAction<string[]>>; //setHistory is used to maintaint the state of the list, managing everything before what recently happens
 }
@@ -15,6 +16,9 @@ export function REPLInput(props : REPLInputProps) {
     const [commandString, setCommandString] = useState<string>('');
     // TODO WITH TA : add a count state
     const [count, setCount] = useState<number>(0);
+    const [modeChanged, setModeChange] = useState<string> ('brief');
+
+    const backgroundClass = modeChanged === 'brief' ? 'brief-background' : 'verbose-background';
 
     // TODO WITH TA: build a handleSubmit function called in button onClick
     // TODO: Once it increments, try to make it push commands... Note that you can use the `...` spread syntax to copy what was there before
@@ -27,9 +31,19 @@ export function REPLInput(props : REPLInputProps) {
       setCount(count + 1);
       props.setHistory([...props.history, text]); //... means everything before in the history plus the new commandString
       setCommandString("")
+      handleChangeMode(text);
     }
+
+    function handleChangeMode(text: string){
+      if(text.toLowerCase() == "mode" && modeChanged == "brief"){
+        setModeChange("verbose")
+      }else if(text.toLowerCase() == "mode" && modeChanged == "verbose"){
+        setModeChange("brief")
+      }
+    }
+
     return (
-        <div className="repl-input">
+        <div className={`repl-input ${backgroundClass}`}>
             {/* This is a comment within the JSX. Notice that it's a TypeScript comment wrapped in
             braces, so that React knows it should be interpreted as TypeScript */}
             {/* I opted to use this HTML tag; you don't need to. It structures multiple input fields

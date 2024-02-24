@@ -17,6 +17,7 @@ export function REPLInput(props : REPLInputProps) {
     // TODO WITH TA : add a count state
     const [count, setCount] = useState<number>(0);
     const [modeChanged, setModeChange] = useState<string> ('brief');
+    
 
     const backgroundClass = modeChanged === 'brief' ? 'brief-background' : 'verbose-background';
 
@@ -39,6 +40,7 @@ export function REPLInput(props : REPLInputProps) {
         setModeChange("verbose")
       }else if(text.toLowerCase() == "mode" && modeChanged == "verbose"){
         setModeChange("brief")
+        
       }
     }
 

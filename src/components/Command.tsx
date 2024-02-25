@@ -1,9 +1,7 @@
 class CommandLibrary {
     static commands = {
-      help: () => "Available commands: help, greet, exit",
-      greet: () => "Hello! How can I assist you today?",
-      exit: () => "Goodbye!",
-      // Add more commands as needed
+      help: () => "Available commands: load_file <csv-file-path>, view, search <column> <value>",
+      
     };
   
     static executeCommand(commandName) {

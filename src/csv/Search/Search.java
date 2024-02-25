@@ -21,22 +21,27 @@ public class Search {
   /**
    * Parses CSV stored in CSVParser field
    *
-   * @throws IOException if an I/O error occurs while parsing the CSV file.
-   * @throws FactoryFailureException if an error occurs during CSVParser creation of List<String>
-   *     object from row.
-   * @throws MalformedRowsException if parser encounters rows of invalid size while parsing
+   * @throws IOException             if an I/O error occurs while parsing the CSV
+   *                                 file.
+   * @throws FactoryFailureException if an error occurs during CSVParser creation
+   *                                 of List<String>
+   *                                 object from row.
+   * @throws MalformedRowsException  if parser encounters rows of invalid size
+   *                                 while parsing
    */
   public void parseCSV() throws IOException, FactoryFailureException, MalformedRowsException {
     this.csvParser.parse();
   }
 
   /**
-   * Searches the CSV file for rows containing specified value. The specified value must be a
+   * Searches the CSV file for rows containing specified value. The specified
+   * value must be a
    * substring of one of the values in a row to be considered a 'match'.
    *
    * @param toSearch The value to search for in the CSV file.
-   * @return A list of rows that contain the specified value. If no matches are found, an empty list
-   *     will be returned.
+   * @return A list of rows that contain the specified value. If no matches are
+   *         found, an empty list
+   *         will be returned.
    */
   public List<List<String>> searchCSV(String toSearch) {
     List<List<String>> matches = new ArrayList<>();
@@ -54,15 +59,19 @@ public class Search {
   }
 
   /**
-   * Searches the CSV file for rows containing the specified value in a specific header/column. The
-   * specified value must be a substring the value in the specified column of a row to be considered
+   * Searches the CSV file for rows containing the specified value in a specific
+   * header/column. The
+   * specified value must be a substring the value in the specified column of a
+   * row to be considered
    * a 'match'.
    *
    * @param toSearch The value to search for in the CSV file.
-   * @param header The header/column in which to search for the value.
-   * @return A list of rows that contain the specified value in the specified header/column. If no
-   *     matches are found, an empty list will be returned.
-   * @throws NoSuchElementException if the specified header does not exist in the CSV file.
+   * @param header   The header/column in which to search for the value.
+   * @return A list of rows that contain the specified value in the specified
+   *         header/column. If no
+   *         matches are found, an empty list will be returned.
+   * @throws NoSuchElementException if the specified header does not exist in the
+   *                                CSV file.
    */
   public List<List<String>> searchCSV(String toSearch, String header)
       throws NoSuchElementException {
@@ -76,15 +85,19 @@ public class Search {
   }
 
   /**
-   * Searches the CSV file for rows containing the specified value in a specific column. The
-   * specified value must be a substring the value in the specified column of a row to be considered
+   * Searches the CSV file for rows containing the specified value in a specific
+   * column. The
+   * specified value must be a substring the value in the specified column of a
+   * row to be considered
    * a 'match'.
    *
-   * @param toSearch The value to search for in the CSV file.
+   * @param toSearch     The value to search for in the CSV file.
    * @param columnNumber The column number in which to search for the value.
-   * @return A list of rows that contain the specified value in the specified column. If no matches
-   *     are found, an empty list will be returned.
-   * @throws IndexOutOfBoundsException if the specified column number is out of bounds.
+   * @return A list of rows that contain the specified value in the specified
+   *         column. If no matches
+   *         are found, an empty list will be returned.
+   * @throws IndexOutOfBoundsException if the specified column number is out of
+   *                                   bounds.
    */
   public List<List<String>> searchCSV(String toSearch, Integer columnNumber)
       throws IndexOutOfBoundsException {

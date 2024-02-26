@@ -19,7 +19,13 @@ export function REPLInput(props: REPLInputProps) {
 
     const {isValid, response } = executeCommand(commandString);
   
+    // function handleCommand(text: string){
+    //   if(text.toLowerCase()== "load"){
+    //     text[1] ==
+    //   }
 
+
+    // }
     function handleSubmit(text: string) {
       // Checks if the input is "mode" to toggle between brief and verbose
       if (text.toLowerCase() === "mode") {

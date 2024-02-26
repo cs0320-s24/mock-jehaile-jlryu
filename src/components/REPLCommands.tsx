@@ -1,11 +1,12 @@
-// Define a type for the response of command execution
-import { fileNames } from '/Users/jowet/Desktop/cs320/mock-jehaile-jlryu/data/MockedJSON';
+import {fileDataArray} from "/Users/jiminryu/Desktop/cs0320/mock-jehaile-jlryu/data/MockedJSON";
 
 type CommandResponse = {
     isValid: boolean;
     response: string;
   };
+
   var loadedFile:string[];
+  //map to a file name and whether it is loaded or not, only one value can be loaded at once 
   
   // Mocked command execution for demonstration
   const executeCommand = (command: string): CommandResponse => {
@@ -15,7 +16,6 @@ type CommandResponse = {
         const filePath = parts[1]; 
         if (filePath && fileNames.includes(filePath)){
 
-            loadedFile.push(filePath);
 
           return {isValid: true, response: "Loading file from path:" + {filePath}};
 
@@ -28,14 +28,16 @@ type CommandResponse = {
         //if they load a file and then 
 
       }
+      return {isValid:false, response: "Invalid command. Please enter a valid command"}
     }
-    const executeView()
-  
-    // Add more commands and their handling logic here
-    
-    // Default response for unknown commands
-    // return { isValid: false, response: "Unknown command" };
-  
-  
-  export { executeCommand, CommandResponse };
+    const executeView(fileName: string){
+      
+    }
+
+//const executeView()
+// Add more commands and their handling logic here
+// Default response for unknown commands
+// return { isValid: false, response: "Unknown command" };
+export { executeCommand };
+export type { CommandResponse };
   

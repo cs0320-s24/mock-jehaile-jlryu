@@ -1,18 +1,32 @@
-type fileRecord = Record<string, number>;
+interface FileData {
+    filePath: string;
+    isLoaded: boolean;
+    fileContent: (string|number)[][];
+  }
+  var exampleCSV1: FileData = {
+    filePath: 'path/to/csv1.csv',
+    isLoaded: false,
+    fileContent: [
+        [1, 2, 3, 4, 5],
+        ["The", "song", "remains", "the", "same."],
+    ]
+  };
+  var exampleCSV2: FileData = {
+    filePath: 'path/to/csv2.csv',
+    isLoaded: false,
+    fileContent: [
+        [2,4,6,8,10],
+        ["hello", "hi", "hola", "hey"],
+    ]
+  };  var exampleCSV3: FileData = {
+    filePath: 'path/to/csv3.csv',
+    isLoaded: false,
+    fileContent: [
+        ["1", "2", "3", "4", "5"],
+        ["ded", "bcb", "bab", "hoh", "yes."],
+    ]
+  };
 
-// const myRecord: fileRecord = {
-//   key1: 1,
-//   key2: 2,
-//   key3: 3,
-// };
+const fileDataList: FileData[] = [exampleCSV1, exampleCSV2, exampleCSV3];
 
-var fileNames:string[]; 
-fileNames = ["exampleCSV1", "exampleCSV2", "exampleCSV3", "exampleCSV4"];
-
-
-const exampleCSV1 = [
-    [1, 2, 3, 4, 5],
-    ["The", "song", "remains", "the", "same."],
-]
-
-
+export const fileDataArray = fileDataList;

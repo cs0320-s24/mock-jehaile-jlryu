@@ -11,7 +11,6 @@ type CommandResponse = {
         const parts = command.split(' '); // Split the command by spaces
         const filePath = parts[1]; 
         if (filePath){
-          
           return { isValid: true, response: `Loading file from path: ${filePath}` };
         }
       }

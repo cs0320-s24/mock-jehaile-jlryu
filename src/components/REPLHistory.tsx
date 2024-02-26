@@ -1,6 +1,5 @@
 import '../styles/main.css';
 
-
 interface REPLHistoryProps{
     history: string[];
     mode: string

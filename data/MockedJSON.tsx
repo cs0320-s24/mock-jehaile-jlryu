@@ -2,6 +2,7 @@ interface FileData {
     filePath: string;
     isLoaded: boolean;
     fileContent: (string|number)[][];
+
   }
   var exampleCSV1: FileData = {
     filePath: 'path/to/csv1.csv',
@@ -18,7 +19,8 @@ interface FileData {
         [2,4,6,8,10],
         ["hello", "hi", "hola", "hey"],
     ]
-  };  var exampleCSV3: FileData = {
+  };  
+  var exampleCSV3: FileData = {
     filePath: 'path/to/csv3.csv',
     isLoaded: false,
     fileContent: [
@@ -30,3 +32,4 @@ interface FileData {
 const fileDataList: FileData[] = [exampleCSV1, exampleCSV2, exampleCSV3];
 
 export const fileDataArray = fileDataList;
+export type fileData = FileData;

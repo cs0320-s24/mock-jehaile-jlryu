@@ -1,4 +1,4 @@
-import {fileDataArray} from "/Users/jiminryu/Desktop/cs0320/mock-jehaile-jlryu/data/MockedJSON";
+import {fileDataArray, fileData} from "/Users/jiminryu/Desktop/cs0320/mock-jehaile-jlryu/data/MockedJSON";
 
 type CommandResponse = {
     isValid: boolean;
@@ -6,6 +6,10 @@ type CommandResponse = {
   };
 
   var loadedFile:string[];
+  function isFilePathInFileDataArray(filePath: string, fileDataArray: fileData[]): boolean {
+    // Iterate through the fileDataArray to find if any object's filePath matches the given filePath
+    return fileDataArray.some(fileData => fileData.filePath === filePath);
+}
   //map to a file name and whether it is loaded or not, only one value can be loaded at once 
   
   // Mocked command execution for demonstration
@@ -14,13 +18,40 @@ type CommandResponse = {
         // Assuming command is a string with the format "load_file <csv-file-path>"
         const parts = command.split(' '); // Split the command by spaces
         const filePath = parts[1]; 
-        if (filePath && fileNames.includes(filePath)){
-
-
-          return {isValid: true, response: "Loading file from path:" + {filePath}};
-
         
-        }
+        // if (filePath && isFilePathInFileDataArray(filePath, fileDataArray)) {
+        //   // Find the matching FileData object and set its isLoaded property to true
+        //   const fileData = fileDataArray.find(fileData => fileData.filePath === filePath);
+        //   if (fileData) {
+        //     fileData.isLoaded = true; // Set isLoaded to true
+
+
+        //   }
+
+          
+      //   for (let fileData of fileDataArray) {
+      //     if (fileData.filePath === filePath) {
+      //         fileData.isLoaded = true; // Set the isLoaded to true for the matched file
+      //     } else {
+      //         fileData.isLoaded = false; // Set the isLoaded to false for all other files
+      //     }
+
+      // }
+
+
+      let loadedFileData: fileData | undefined; // Local variable to store loaded file data
+
+    // Iterate through the fileDataArray
+      fileDataArray.forEach(fileData => {
+          if (fileData.filePath === filePath) {
+              fileData.isLoaded = true; // Set the isLoaded to true for the matched file
+              loadedFileData = fileData; // Store this fileData as the loaded one
+          } else {
+              fileData.isLoaded = false; // Set the isLoaded to false for all other files
+          }
+      });
+
+
         return {isValid:false, response: "Invalid file name. Reenter a valid file name."}
       }
       if(command.startsWith("view")){

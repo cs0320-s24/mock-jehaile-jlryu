@@ -1,16 +1,11 @@
-// import {fileDataArray, fileData} from "/Users/jiminryu/Desktop/cs0320/mock-jehaile-jlryu/data/MockedJSON"; //for jimin
+import {fileDataArray, fileData} from "/Users/jiminryu/Desktop/cs0320/mock-jehaile-jlryu/data/MockedJSON"; //for jimin
 
-import {fileDataArray, fileData} from "/Users/jowet/Desktop/cs320/mock-jehaile-jlryu/data/MockedJSON"; // for jo
+// import {fileDataArray, fileData} from "/Users/jowet/Desktop/cs320/mock-jehaile-jlryu/data/MockedJSON"; // for jo
 
 type CommandResponse = {
   response: string | React.ReactNode;
 };
 
-  // var loadedFile:string[];
-  function isFilePathInFileDataArray(filePath: string, fileDataArray: fileData[]): boolean {
-    // Iterate through the fileDataArray to find if any object's filePath matches the given filePath
-    return fileDataArray.some(fileData => fileData.filePath === filePath);
-}
   //map to a file name and whether it is loaded or not, only one value can be loaded at once 
 //   const generateHTMLTable = (fileContent: (string | number)[][]): string => {
 //     let tableHTML = '<table>';
@@ -105,7 +100,7 @@ type CommandResponse = {
                 </table>
             );
             console.log("table" + table);
-            return { response: table };
+            return { response: table};
         }
         return { response: "No file loaded or file content is empty." }
     }

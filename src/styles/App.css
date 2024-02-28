@@ -4,7 +4,7 @@
 
 .App-header {
   /*background-color: #282c34;*/
-  background-color: #ffdbd1;
+  background-color: #ffb7d3;
   /* background-color: #ffe7dc; */
 
 
@@ -18,9 +18,9 @@
 }
 
 .brief-background{
-  background-color: #294f56 ;
+  background-color: rgb(150, 150, 150) ;
 }
 
 .verbose-background{
-  background-color: #3c5628 ;
+  background-color: black ;
 }

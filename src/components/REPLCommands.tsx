@@ -1,9 +1,8 @@
-// import {fileDataArray, fileData} from "/Users/jiminryu/Desktop/cs0320/mock-jehaile-jlryu/data/MockedJSON"; //for jimin
+import {fileDataArray, fileData} from "/Users/jiminryu/Desktop/cs0320/mock-jehaile-jlryu/data/MockedJSON"; //for jimin
 
-import {fileDataArray, fileData} from "/Users/jowet/Desktop/cs320/mock-jehaile-jlryu/data/MockedJSON"; // for jo
+// import {fileDataArray, fileData} from "/Users/jowet/Desktop/cs320/mock-jehaile-jlryu/data/MockedJSON"; // for jo
 
 type CommandResponse = {
-    isValid: boolean;
     response: string;
   };
 
@@ -18,23 +17,9 @@ type CommandResponse = {
   const executeCommand = (command: string): CommandResponse => {
     if (command.startsWith("load_file")) {
         // Assuming command is a string with the format "load_file <csv-file-path>"
-        const parts = command.split(' '); // Split the command by spaces
-        const filePath = parts[1]; 
+      const parts = command.split(' '); // Split the command by spaces
+      const filePath = parts[1]; 
         
-        // if (filePath && isFilePathInFileDataArray(filePath, fileDataArray)) {
-        //   // Find the matching FileData object and set its isLoaded property to true
-        //   const fileData = fileDataArray.find(fileData => fileData.filePath === filePath);
-        //   if (fileData) {
-        //     fileData.isLoaded = true; // Set isLoaded to true
-        //   }
-      //   for (let fileData of fileDataArray) {
-      //     if (fileData.filePath === filePath) {
-      //         fileData.isLoaded = true; // Set the isLoaded to true for the matched file
-      //     } else {
-      //         fileData.isLoaded = false; // Set the isLoaded to false for all other files
-      //     }
-
-      // }
       let loadedFileData: fileData | undefined; // Local variable to store loaded file data
       let isFound:boolean = false;;
     // Iterate through the fileDataArray
@@ -47,15 +32,13 @@ type CommandResponse = {
               fileData.isLoaded = false; // Set the isLoaded to false for all other files
           }
       });
-
-      return {isLoaded, response: "Invalid file name. Reenter a valid file name."}
-
         if(isFound){
           isFound = false; //reset the variable after it is found so it wont effect future 
-          return {isValid: true, response: "Loaded succesfully! :)"}
+          return {response: "Loaded succesfully! :)"}
         }
-        return {isValid:false, response: "Invalid file name. Reenter a valid file name."}
+        return {response: "Invalid file name. Reenter a valid file name."}
         }
+
     if(command.startsWith("view")){
         //if they load a file then type invalid command then want to view the previous should that work?
         //if they load a file and then 
@@ -67,7 +50,7 @@ type CommandResponse = {
 
         
     }
-    return {isValid:false, response: "Invalid command. Please enter a valid command"}
+    return {response: "Invalid command. Please enter a valid command"}
     }
     // const executeView(fileName: string){
       

@@ -2,7 +2,8 @@ import '../styles/main.css';
 
 interface REPLHistoryProps{
     history: string[];
-    mode: string
+    mode: string;
+    item: string;
 }
 export function REPLHistory(props : REPLHistoryProps) {
     return (
@@ -10,9 +11,8 @@ export function REPLHistory(props : REPLHistoryProps) {
             {props.history.map((command, index) => (
                 <div key={index}>
 
-                    {props.mode === 'verbose' ? <p>Command: {command} Output: {"output"}</p> : null}
-                    {props.mode === 'brief' ? <p>Output: {"output"}</p>: null}
-                    {/* Adjust this to show actual output vs. command text */}
+                    {props.mode === 'verbose' ? <p>Command: {command} Output: {"response"}</p> : null}
+                    {props.mode === 'brief' ? <p>Output: {"response"}</p>: null}
                 </div>
             ))}
         </div>

@@ -1,11 +1,13 @@
-import {fileDataArray, fileData} from "/Users/jiminryu/Desktop/cs0320/mock-jehaile-jlryu/data/MockedJSON";
+// import {fileDataArray, fileData} from "/Users/jiminryu/Desktop/cs0320/mock-jehaile-jlryu/data/MockedJSON"; //for jimin
+
+import {fileDataArray, fileData} from "/Users/jowet/Desktop/cs320/mock-jehaile-jlryu/data/MockedJSON"; // for jo
 
 type CommandResponse = {
     isValid: boolean;
     response: string;
   };
 
-  var loadedFile:string[];
+  // var loadedFile:string[];
   function isFilePathInFileDataArray(filePath: string, fileDataArray: fileData[]): boolean {
     // Iterate through the fileDataArray to find if any object's filePath matches the given filePath
     return fileDataArray.some(fileData => fileData.filePath === filePath);
@@ -24,11 +26,7 @@ type CommandResponse = {
         //   const fileData = fileDataArray.find(fileData => fileData.filePath === filePath);
         //   if (fileData) {
         //     fileData.isLoaded = true; // Set isLoaded to true
-
-
         //   }
-
-          
       //   for (let fileData of fileDataArray) {
       //     if (fileData.filePath === filePath) {
       //         fileData.isLoaded = true; // Set the isLoaded to true for the matched file
@@ -37,32 +35,43 @@ type CommandResponse = {
       //     }
 
       // }
-
-
       let loadedFileData: fileData | undefined; // Local variable to store loaded file data
-
+      let isFound:boolean = false;;
     // Iterate through the fileDataArray
       fileDataArray.forEach(fileData => {
           if (fileData.filePath === filePath) {
               fileData.isLoaded = true; // Set the isLoaded to true for the matched file
               loadedFileData = fileData; // Store this fileData as the loaded one
+              isFound = true
           } else {
               fileData.isLoaded = false; // Set the isLoaded to false for all other files
           }
       });
 
-        return {isLoaded, response: "Invalid file name. Reenter a valid file name."}
-      }
-      if(command.startsWith("view")){
+      return {isLoaded, response: "Invalid file name. Reenter a valid file name."}
+
+        if(isFound){
+          isFound = false; //reset the variable after it is found so it wont effect future 
+          return {isValid: true, response: "Loaded succesfully! :)"}
+        }
+        return {isValid:false, response: "Invalid file name. Reenter a valid file name."}
+        }
+    if(command.startsWith("view")){
         //if they load a file then type invalid command then want to view the previous should that work?
         //if they load a file and then 
+        
 
-      }
-      return {isValid:false, response: "Invalid command. Please enter a valid command"}
     }
-    const executeView(fileName: string){
+
+    if(command.startsWith("search")){
+
+        
+    }
+    return {isValid:false, response: "Invalid command. Please enter a valid command"}
+    }
+    // const executeView(fileName: string){
       
-    }
+    // }
 
 //const executeView()
 // Add more commands and their handling logic here

@@ -1,6 +1,6 @@
-// import {fileDataArray, fileData} from "/Users/jiminryu/Desktop/cs0320/mock-jehaile-jlryu/data/MockedJSON"; //for jimin
+import {fileDataArray, fileData} from "/Users/jiminryu/Desktop/cs0320/mock-jehaile-jlryu/data/MockedJSON"; //for jimin
 
-import {fileDataArray, fileData} from "/Users/jowet/Desktop/cs320/mock-jehaile-jlryu/data/MockedJSON"; // for jo
+// import {fileDataArray, fileData} from "/Users/jowet/Desktop/cs320/mock-jehaile-jlryu/data/MockedJSON"; // for jo
 import React from 'react';
 import { REPLInputProps } from './REPLInput';
 import { Table } from 'antd';
@@ -188,7 +188,6 @@ function arrayToTable(array: (string | number)[][]) {
       
     // }
     const executeCommand = (command: string): CommandResponse => {
-      let loadedFileData: fileData | undefined; // Local variable to store loaded file data
       var filePath = ' ';
     
       if (command.startsWith("load_file")) {
@@ -196,7 +195,7 @@ function arrayToTable(array: (string | number)[][]) {
         const parts = command.split(' '); // Split the command by spaces
         filePath = parts[1];
     
-        let loadedFileData: fileData | undefined;
+        let loadedFileData: fileData | undefined; // Local variable to store loaded file data
         let isFound:boolean = false;
         fileDataArray.forEach(fileData => {
           if (fileData.filePath === filePath) {
@@ -217,7 +216,11 @@ function arrayToTable(array: (string | number)[][]) {
         const loadedFile = fileDataArray.find(fileData => fileData.isLoaded);
         const output = loadedFile ? loadedFile.fileContent2 : 'ERROR: Please load a file before viewing.';
         return { response: output };
-      } else {
+      } else if(command.startsWith("search")){
+        
+      }
+      
+      {
         return { response: "Invalid command. Please enter a valid command." };
       }
     };

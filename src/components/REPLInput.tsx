@@ -35,7 +35,6 @@ export function REPLInput(props: REPLInputProps) {
     //   }
     // }
     function handleSubmit(text: string) {
-      const response: string = "your response here";
 
       // Checks if the input is "mode" to toggle between brief and verbose
       if (text.toLowerCase() === "mode") {

@@ -16,6 +16,8 @@ type CommandResponse = {
   
   // Mocked command execution for demonstration
   const executeCommand = (command: string): CommandResponse => {
+    let loadedFileData: fileData | undefined; // Local variable to store loaded file data
+
     if (command.startsWith("load_file")) {
         // Assuming command is a string with the format "load_file <csv-file-path>"
         const parts = command.split(' '); // Split the command by spaces
@@ -35,7 +37,6 @@ type CommandResponse = {
       //     }
 
       // }
-      let loadedFileData: fileData | undefined; // Local variable to store loaded file data
       let isFound:boolean = false;;
     // Iterate through the fileDataArray
       fileDataArray.forEach(fileData => {
@@ -48,7 +49,7 @@ type CommandResponse = {
           }
       });
 
-      return {isLoaded, response: "Invalid file name. Reenter a valid file name."}
+      //return {isLoaded, response: "Invalid file name. Reenter a valid file name."}
 
         if(isFound){
           isFound = false; //reset the variable after it is found so it wont effect future 
@@ -56,17 +57,17 @@ type CommandResponse = {
         }
         return {isValid:false, response: "Invalid file name. Reenter a valid file name."}
         }
-    if(command.startsWith("view")){
-        //if they load a file then type invalid command then want to view the previous should that work?
-        //if they load a file and then 
+    // if(command.startsWith("view")){
+    //     //if they load a file then type invalid command then want to view the previous should that work?
+    //     //if they load a file and then 
+
+
+    // }
+
+    // if(command.startsWith("search")){
+
         
-
-    }
-
-    if(command.startsWith("search")){
-
-        
-    }
+    // }
     return {isValid:false, response: "Invalid command. Please enter a valid command"}
     }
     // const executeView(fileName: string){

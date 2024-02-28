@@ -51,8 +51,7 @@ type CommandResponse = {
           }
       });
 
-
-        return {isValid:false, response: "Invalid file name. Reenter a valid file name."}
+        return {isLoaded, response: "Invalid file name. Reenter a valid file name."}
       }
       if(command.startsWith("view")){
         //if they load a file then type invalid command then want to view the previous should that work?

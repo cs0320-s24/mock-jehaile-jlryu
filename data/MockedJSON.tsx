@@ -16,8 +16,8 @@ interface FileData {
     filePath: 'path/to/csv2.csv',
     isLoaded: false,
     fileContent: [
-        [2,4,6,8,10],
-        ["hello", "hi", "hola", "hey"],
+        ["20,000",40000,"60,000",80000,100000],
+        ["Price 1", "Price 2", "Price 3", "Price 4", "Price 5"],
     ]
   };  
   var exampleCSV3: FileData = {

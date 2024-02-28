@@ -5,7 +5,7 @@ interface FileData {
 
   }
   var exampleCSV1: FileData = {
-    filePath: 'path/to/csv1.csv',
+    filePath: 'csv1.csv',
     isLoaded: false,
     fileContent: [
         [1, 2, 3, 4, 5],

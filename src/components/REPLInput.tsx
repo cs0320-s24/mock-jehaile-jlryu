@@ -55,7 +55,8 @@ export function REPLInput(props: REPLInputProps) {
                 onKeyDown={handleKeyDown} 
                 />
             </fieldset>
-            <button aria-label={"Submit"} onClick={() => handleSubmit(commandString)}></button>
+            <button aria-label={"Submit"} onClick={() => handleSubmit(commandString)}>Submit</button>
+
         </div>
     );
 }

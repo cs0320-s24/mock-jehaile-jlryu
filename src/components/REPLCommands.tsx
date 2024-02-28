@@ -1,10 +1,10 @@
-import {fileDataArray, fileData} from "/Users/jiminryu/Desktop/cs0320/mock-jehaile-jlryu/data/MockedJSON"; //for jimin
+// import {fileDataArray, fileData} from "/Users/jiminryu/Desktop/cs0320/mock-jehaile-jlryu/data/MockedJSON"; //for jimin
 
-// import {fileDataArray, fileData} from "/Users/jowet/Desktop/cs320/mock-jehaile-jlryu/data/MockedJSON"; // for jo
+import {fileDataArray, fileData} from "/Users/jowet/Desktop/cs320/mock-jehaile-jlryu/data/MockedJSON"; // for jo
 
 type CommandResponse = {
-    response: string;
-  };
+  response: string | React.ReactNode;
+};
 
   // var loadedFile:string[];
   function isFilePathInFileDataArray(filePath: string, fileDataArray: fileData[]): boolean {
@@ -12,15 +12,38 @@ type CommandResponse = {
     return fileDataArray.some(fileData => fileData.filePath === filePath);
 }
   //map to a file name and whether it is loaded or not, only one value can be loaded at once 
-  
+//   const generateHTMLTable = (fileContent: (string | number)[][]): string => {
+//     let tableHTML = '<table>';
+//     fileContent.forEach(row => {
+//         tableHTML += '<tr>';
+//         row.forEach(cell => {
+//             tableHTML += `<td>${cell}</td>`;
+//         });
+//         tableHTML += '</tr>';
+//     });
+//     tableHTML += '</table>';
+//     return tableHTML;
+// };
+// const generateHTMLTable = (fileContent: (string | number)[][]): string => {
+//   let tableHTML = '';
+//   fileContent.forEach(row => {
+//       tableHTML += '<tr>';
+//       row.forEach(cell => {
+//           tableHTML += `<td>${cell}</td>`;
+//       });
+//       tableHTML += '</tr>';
+//   });
+//   return tableHTML;
+// };
   // Mocked command execution for demonstration
   const executeCommand = (command: string): CommandResponse => {
     let loadedFileData: fileData | undefined; // Local variable to store loaded file data
+    var filePath = ' ';
 
     if (command.startsWith("load_file")) {
         // Assuming command is a string with the format "load_file <csv-file-path>"
       const parts = command.split(' '); // Split the command by spaces
-      const filePath = parts[1]; 
+      filePath = parts[1]; 
         
       let loadedFileData: fileData | undefined; // Local variable to store loaded file data
         // if (filePath && isFilePathInFileDataArray(filePath, fileDataArray)) {
@@ -58,7 +81,40 @@ type CommandResponse = {
         return {response: "Invalid file name. Reenter a valid file name."}
         }
 
-    if(command.startsWith("view")){
+    // if(command.startsWith("view")){
+    //   const file = fileDataArray.find((word) => word.isLoaded === true);
+    //     if (file && file.fileContent) {
+    //         const table = generateHTMLTable(file.fileContent);
+    //         return { response: table };
+    //     }
+    //     return { response: "No file loaded or file content is empty." }
+      if (command.startsWith("view")) {
+        const file = fileDataArray.find((word) => word.isLoaded === true);
+        if (file && file.fileContent) {
+            const table = (
+                <table>
+                    <tbody>
+                        {file.fileContent.map((row, rowIndex) => (
+                            <tr key={rowIndex}>
+                                {row.map((cell, cellIndex) => (
+                                    <td key={cellIndex}>{cell}</td>
+                                ))}
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            );
+            console.log("table" + table);
+            return { response: table };
+        }
+        return { response: "No file loaded or file content is empty." }
+    }
+      
+      // var file = fileDataArray.find((word) => word.isLoaded === true);
+      // if(file?.fileContent != undefined){
+      //   return {response: file.fileContent}
+      // }
+
         //if they load a file then type invalid command then want to view the previous should that work?
         //if they load a file and then 
         
@@ -72,10 +128,10 @@ type CommandResponse = {
     // if(command.startsWith("search")){
 
         
-    }
-    return {response: "Invalid command. Please enter a valid command"}
+    
+    return {response: "Invalid command. Please enter a valid command"}}
     // }
-    }
+    
     // const executeView(fileName: string){
       
     // }

@@ -1,23 +1,53 @@
 import React from 'react';
-import {fileDataArray, fileData} from "/Users/jiminryu/Desktop/cs0320/mock-jehaile-jlryu/data/MockedJSON"; 
+import '../styles/main.css';
 
+interface TableProps {
+  data: any[][];
+}
 
-// Define a Table component that takes fileContent as a prop
-const Table = ({ fileDataArray }) => {
+const Table: React.FC<TableProps> = ({ data }) => {
   return (
-    <table>
-      <tbody>
-        {fileContent.map((row, rowIndex) => (
-          <tr key={rowIndex}>
-            {row.map((cell, cellIndex) => (
-              <td key={cellIndex}>{cell}</td>
+    <div className="table-container">
+      <table className="styled-table">
+        <thead>
+          <tr>
+            {data[0].map((cell, index) => (
+              <th key={index}>{cell}</th>
             ))}
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {data.slice(1).map((row, rowIndex) => (
+            <tr key={rowIndex}>
+              {row.map((cell, cellIndex) => (
+                <td key={cellIndex}>{cell}</td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 };
 
-// Export the Table component
 export default Table;
+
+// // Define a Table component that takes fileContent as a prop
+// const Table = ({ fileDataArray }) => {
+//   return (
+//     <table>
+//       <tbody>
+//         {fileContent.map((row, rowIndex) => (
+//           <tr key={rowIndex}>
+//             {row.map((cell, cellIndex) => (
+//               <td key={cellIndex}>{cell}</td>
+//             ))}
+//           </tr>
+//         ))}
+//       </tbody>
+//     </table>
+//   );
+// };
+
+// // Export the Table component
+// export default Table;

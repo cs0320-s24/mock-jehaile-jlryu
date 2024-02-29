@@ -1,12 +1,12 @@
-import dol_ri_earning_data from './dol_ri_earnings_disparity.json';
-import postsecondary_education from "./postsecondary_education.json";
-import ri_city_and_town_income from "./ri_city_and_town_income.json";
-import dol_searchIndex from "./dol_searchColumn.json";
-import postsecondary_searchIndex from "./postsecondary_searchColumn.json";
-import ri_searchIndex from "./ri_searchColumn.json"
-import dol_searchHeader from "./dol_searchHeader.json";
-import postsecondary_searchHeader from "./dol_searchHeader.json";
-import ri_searchHeader from "./ri_searchHeader.json";
+import dol_ri_earning_data from './dol_ri_earnings_disparity/dol_ri_earnings_disparity.json';
+import postsecondary_education from "./postsecondary_education/postsecondary_education.json";
+import ri_city_and_town_income from "./ri_city_and_town_income/ri_city_and_town_income.json";
+import dol_searchIndex from "./dol_ri_earnings_disparity/dol_searchColumn.json";
+import postsecondary_searchIndex from "./postsecondary_education/postsecondary_searchColumn.json";
+import ri_searchIndex from "./ri_city_and_town_income/ri_searchColumn.json"
+import dol_searchHeader from "./dol_ri_earnings_disparity/dol_searchHeader.json";
+import postsecondary_searchHeader from "./dol_ri_earnings_disparity/dol_searchHeader.json";
+import ri_searchHeader from "./ri_city_and_town_income/ri_searchHeader.json";
 
 
 

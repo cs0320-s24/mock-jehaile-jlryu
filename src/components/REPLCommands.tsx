@@ -48,49 +48,69 @@ type CommandResponse = {
 
 
       else if(command.startsWith("search")){
-        if(command === "search Slug University emory-university"){
-          const loadedFile = fileDataArray.find(fileData => fileData.isLoaded);
-          const output = loadedFile ? loadedFile.searchHeader: 'ERROR: Please load a file before viewing.';
-          return { response: output };
-
-        }
-        if(command === "search 0 white"){
-          const loadedFile = fileDataArray.find(fileData => fileData.isLoaded);
-          const output = loadedFile ? loadedFile.searchIndex: 'ERROR: Please load a file before viewing.';
-          return { response: output };
-        }
         if(command ==="search Employed Percent 4%"){
           const loadedFile = fileDataArray.find(fileData => fileData.isLoaded);
+          if(loadedFile?.filePath== "csv1.csv"){
+          const output = loadedFile ? loadedFile.searchHeader: 'ERROR: Please load a file before viewing.';
+          return { response: output };}
+          else{
+            return{response: "Invalid search. This could be caused by searching the wrong file or unhandled parameters after search. Sorry try again later!"}
+          }
+
+        }
+        else if(command ==="search 1 Black"){
+          const loadedFile = fileDataArray.find(fileData => fileData.isLoaded);
+          if(loadedFile?.filePath== "csv1.csv"){
+          const output = loadedFile ? loadedFile.searchIndex: 'ERROR: Please load a file before viewing.';
+          return { response: output };}
+          else{
+            return{response: "Invalid search. This could be caused by searching the wrong file or unhandled parameters after search. Sorry try again later!"}
+          }}
+        
+        else if(command === "search Slug University emory-university"){
+
+          const loadedFile = fileDataArray.find(fileData => fileData.isLoaded);
+          if(loadedFile?.filePath== "csv2.csv"){
+
           const output = loadedFile ? loadedFile.searchHeader: 'ERROR: Please load a file before viewing.';
           return { response: output };
 
+        } else{
+          return{response: "Invalid search. This could be caused by searching the wrong file or unhandled parameters after search. Sorry try again later!"}
         }
-        if(command ==="search 1 Black"){
+      }
+        else if(command === "search 0 White"){
           const loadedFile = fileDataArray.find(fileData => fileData.isLoaded);
+          if(loadedFile?.filePath== "csv2.csv"){
+
           const output = loadedFile ? loadedFile.searchIndex: 'ERROR: Please load a file before viewing.';
-          return { response: output };
+          return { response: output };}
+          else{
+            return{response: "Invalid search. This could be caused by searching the wrong file or unhandled parameters after search. Sorry try again later!"}
+          }
+
         }
-        if(command ==="search City/Town Cranston"){
+        
+        else if(command ==="search City/Town Cranston"){
+
           const loadedFile = fileDataArray.find(fileData => fileData.isLoaded);
+          if(loadedFile?.filePath== "csv3.csv"){
           const output = loadedFile ? loadedFile.searchHeader: 'ERROR: Please load a file before viewing.';
-          return { response: output };
+          return { response: output };}
+          else{
+            return{response: "Invalid search. This could be caused by searching the wrong file or unhandled parameters after search. Sorry try again later!"}
+          }
 
         }
-        if(command ==="search 1 94,571.00"){
+        else if(command ==="search 1 94,571.00"){
           const loadedFile = fileDataArray.find(fileData => fileData.isLoaded);
+          if(loadedFile?.filePath== "csv3.csv"){
           const output = loadedFile ? loadedFile.searchIndex: 'ERROR: Please load a file before viewing.';
-          return { response: output };
+          return { response: output };}
+          else{
+            return{response: "Invalid search. This could be caused by searching the wrong file or unhandled parameters after search. Sorry try again later!"}
+          }
         }
-
-
-        // const loadedFile = fileDataArray.find(fileData => fileData.isLoaded);
-
-        // // const parts = command.split(' '); // Split the command by spaces
-        // // indexOrHeader = parts[1];
-        // // if()
-        // const output = loadedFile ? loadedFile.fileContent : 'ERROR: Please load a file before viewing.';
-        // return { response: output };
-
         
       }
       

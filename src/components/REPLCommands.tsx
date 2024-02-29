@@ -1,6 +1,6 @@
-import {fileDataArray, fileData} from "/Users/jiminryu/Desktop/cs0320/mock-jehaile-jlryu/data/MockedJSON"; //for jimin
+// import {fileDataArray, fileData} from "/Users/jiminryu/Desktop/cs0320/mock-jehaile-jlryu/data/MockedJSON"; //for jimin
 
-// import {fileDataArray, fileData} from "/Users/jowet/Desktop/cs320/mock-jehaile-jlryu/data/MockedJSON"; // for jo
+import {fileDataArray, fileData} from "/Users/jowet/Desktop/cs320/mock-jehaile-jlryu/data/MockedJSON"; // for jo
 import React from 'react';
 import { REPLInputProps } from './REPLInput';
 import { Table } from 'antd';
@@ -41,9 +41,14 @@ type CommandResponse = {
         return { response: "Invalid file name. Reenter a valid file name." };
       } else if (command.startsWith("view")) {
         const loadedFile = fileDataArray.find(fileData => fileData.isLoaded);
-        const output = loadedFile ? loadedFile.fileContent2 : 'ERROR: Please load a file before viewing.';
+        const output = loadedFile ? loadedFile.fileContent : 'ERROR: Please load a file before viewing.';
         return { response: output };
       } else if(command.startsWith("search")){
+        
+        const loadedFile = fileDataArray.find(fileData => fileData.isLoaded);
+        const output = loadedFile ? loadedFile.fileContent : 'ERROR: Please load a file before viewing.';
+        return { response: output };
+
         
       }
       

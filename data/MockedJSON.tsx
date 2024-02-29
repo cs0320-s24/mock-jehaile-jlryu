@@ -1,39 +1,51 @@
 import dol_ri_earning_data from './dol_ri_earnings_disparity.json';
+import postsecondary_education from "./postsecondary_education.json";
+import ri_city_and_town_income from "./ri_city_and_town_income.json";
+import dol_searchIndex from "./dol_searchColumn.json";
+import postsecondary_searchIndex from "./postsecondary_searchColumn.json";
+import ri_searchIndex from "./ri_searchColumn.json"
+import dol_searchHeader from "./dol_searchHeader.json";
+import postsecondary_searchHeader from "./dol_searchHeader.json";
+import ri_searchHeader from "./ri_searchHeader.json";
+
+
+
 
 interface FileData {
     filePath: string;
     isLoaded: boolean;
-    fileContent: (string|number)[][];
-    fileContent2: string[][]
+    fileContent: string[][]
+    searchHeader: string[][]
+    searchIndex: string[][]
 
   }
   var exampleCSV1: FileData = {
     filePath: 'csv1.csv',
 
     isLoaded: false,
-    fileContent: [
-        [1, 2, 3, 4, 5],
-        ["The", "song", "remains", "the", "same."],
-    ],
-    fileContent2: dol_ri_earning_data,
+    
+    fileContent
+    : dol_ri_earning_data,
+    searchHeader: dol_searchHeader,
+    searchIndex:dol_searchIndex
+
   };
   var exampleCSV2: FileData = {
-    filePath: 'path/to/csv2.csv',
+    filePath: 'csv2.csv',
     isLoaded: false,
-    fileContent: [
-        ["20,000",40000,"60,000",80000,100000],
-        ["Price 1", "Price 2", "Price 3", "Price 4", "Price 5"],
-    ],
-    fileContent2: []
+    
+    fileContent: postsecondary_education,
+    searchHeader: postsecondary_searchHeader,
+    searchIndex:postsecondary_searchIndex
+
+
   };  
   var exampleCSV3: FileData = {
-    filePath: 'path/to/csv3.csv',
+    filePath: 'csv3.csv',
     isLoaded: false,
-    fileContent: [
-        ["1", "2", "3", "4", "5"],
-        ["ded", "bcb", "bab", "hoh", "yes."],
-    ],
-    fileContent2: []
+    fileContent: ri_city_and_town_income,
+    searchHeader: ri_searchHeader,
+    searchIndex: ri_searchIndex
   };
 
 const fileDataList: FileData[] = [exampleCSV1, exampleCSV2, exampleCSV3];

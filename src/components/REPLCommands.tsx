@@ -43,18 +43,60 @@ type CommandResponse = {
         const loadedFile = fileDataArray.find(fileData => fileData.isLoaded);
         const output = loadedFile ? loadedFile.fileContent : 'ERROR: Please load a file before viewing.';
         return { response: output };
-      } else if(command.startsWith("search")){
-        
-        const loadedFile = fileDataArray.find(fileData => fileData.isLoaded);
-        const output = loadedFile ? loadedFile.fileContent : 'ERROR: Please load a file before viewing.';
-        return { response: output };
+      }
+      
+
+
+      else if(command.startsWith("search")){
+        if("search Slug University emory-university"){
+          const loadedFile = fileDataArray.find(fileData => fileData.isLoaded);
+          const output = loadedFile ? loadedFile.searchHeader: 'ERROR: Please load a file before viewing.';
+          return { response: output };
+
+        }
+        if("search 0 white"){
+          const loadedFile = fileDataArray.find(fileData => fileData.isLoaded);
+          const output = loadedFile ? loadedFile.searchIndex: 'ERROR: Please load a file before viewing.';
+          return { response: output };
+        }
+        if("search Employed Percent 4%"){
+          const loadedFile = fileDataArray.find(fileData => fileData.isLoaded);
+          const output = loadedFile ? loadedFile.searchHeader: 'ERROR: Please load a file before viewing.';
+          return { response: output };
+
+        }
+        if("search 1 Black"){
+          const loadedFile = fileDataArray.find(fileData => fileData.isLoaded);
+          const output = loadedFile ? loadedFile.searchIndex: 'ERROR: Please load a file before viewing.';
+          return { response: output };
+        }
+        if("search City/Town Cranston"){
+          const loadedFile = fileDataArray.find(fileData => fileData.isLoaded);
+          const output = loadedFile ? loadedFile.searchHeader: 'ERROR: Please load a file before viewing.';
+          return { response: output };
+
+        }
+        if("search 1 94,571.00"){
+          const loadedFile = fileDataArray.find(fileData => fileData.isLoaded);
+          const output = loadedFile ? loadedFile.searchIndex: 'ERROR: Please load a file before viewing.';
+          return { response: output };
+        }
+
+
+        // const loadedFile = fileDataArray.find(fileData => fileData.isLoaded);
+
+        // // const parts = command.split(' '); // Split the command by spaces
+        // // indexOrHeader = parts[1];
+        // // if()
+        // const output = loadedFile ? loadedFile.fileContent : 'ERROR: Please load a file before viewing.';
+        // return { response: output };
 
         
       }
       
-      {
-        return { response: "Invalid command. Please enter a valid command." };
-      }
+      
+      return { response: "Invalid command. Please enter a valid command." };
+      
     };
     
 export { executeCommand };

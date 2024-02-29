@@ -11,12 +11,12 @@ export interface REPLInputProps {
   setMode: (newMode: string) => void;
 }
 
-
 export function REPLInput(props: REPLInputProps) {
     const [commandString, setCommandString] = useState<string>('');
     const backgroundClass = props.mode === 'brief' ? 'brief-background' : 'verbose-background';
 
     const {response} = executeCommand(commandString);
+
     
     function handleSubmit(text: string) {
 

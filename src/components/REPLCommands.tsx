@@ -48,35 +48,35 @@ type CommandResponse = {
 
 
       else if(command.startsWith("search")){
-        if("search Slug University emory-university"){
+        if(command === "search Slug University emory-university"){
           const loadedFile = fileDataArray.find(fileData => fileData.isLoaded);
           const output = loadedFile ? loadedFile.searchHeader: 'ERROR: Please load a file before viewing.';
           return { response: output };
 
         }
-        if("search 0 white"){
+        if(command === "search 0 white"){
           const loadedFile = fileDataArray.find(fileData => fileData.isLoaded);
           const output = loadedFile ? loadedFile.searchIndex: 'ERROR: Please load a file before viewing.';
           return { response: output };
         }
-        if("search Employed Percent 4%"){
+        if(command ==="search Employed Percent 4%"){
           const loadedFile = fileDataArray.find(fileData => fileData.isLoaded);
           const output = loadedFile ? loadedFile.searchHeader: 'ERROR: Please load a file before viewing.';
           return { response: output };
 
         }
-        if("search 1 Black"){
+        if(command ==="search 1 Black"){
           const loadedFile = fileDataArray.find(fileData => fileData.isLoaded);
           const output = loadedFile ? loadedFile.searchIndex: 'ERROR: Please load a file before viewing.';
           return { response: output };
         }
-        if("search City/Town Cranston"){
+        if(command ==="search City/Town Cranston"){
           const loadedFile = fileDataArray.find(fileData => fileData.isLoaded);
           const output = loadedFile ? loadedFile.searchHeader: 'ERROR: Please load a file before viewing.';
           return { response: output };
 
         }
-        if("search 1 94,571.00"){
+        if(command ==="search 1 94,571.00"){
           const loadedFile = fileDataArray.find(fileData => fileData.isLoaded);
           const output = loadedFile ? loadedFile.searchIndex: 'ERROR: Please load a file before viewing.';
           return { response: output };

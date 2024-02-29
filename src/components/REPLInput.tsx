@@ -1,12 +1,12 @@
 import '../styles/main.css';
 import '../styles/app.css';
-import { Dispatch, SetStateAction, useState} from 'react';
+import { Dispatch, ReactNode, SetStateAction, useState} from 'react';
 import { ControlledInput } from './ControlledInput';
 import { executeCommand } from './REPLCommands'; 
 
 export interface REPLInputProps {
-  history: { command: string, output: string | JSX.Element }[];
-  setHistory: (newHistory: { command: string, output: string | JSX.Element }[]) => void;
+  history: { command: string, output: string | ReactNode }[];
+  setHistory: (newHistory: { command: string, output: string | ReactNode }[]) => void;
   mode: string;
   setMode: (newMode: string) => void;
 }

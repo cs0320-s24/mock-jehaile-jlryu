@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 
 interface REPLHistoryProps {
-  history2: { command: string, output: string | string[] }[];
+  history: { command: string, output: string | string[] | ReactNode }[];
   mode: string;
 }
 export function REPLHistory(props: REPLHistoryProps) {
     return (
       <div className="repl-history" aria-label={"history box"}>
-        {props.history2.map((entry, index) => (
+        {props.history.map((entry, index) => (
           <div key={index}>
             <p>Command: {entry.command}</p>
             {Array.isArray(entry.output) ? (

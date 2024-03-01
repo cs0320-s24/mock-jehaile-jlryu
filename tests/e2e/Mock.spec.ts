@@ -96,7 +96,6 @@ test.beforeEach(async ({page}) => {
     await page.getByLabel("Submit").click();
 
     let searchResponse = await page.getByLabel("history box").textContent();
-    console.log(searchResponse)
     expect(searchResponse).toContain('Cranston') 
     expect(searchResponse).toContain('Cranston77,145.0095,763.0038,269.00')
 
@@ -113,7 +112,6 @@ test.beforeEach(async ({page}) => {
     await page.getByLabel("Submit").click();
 
     let output = await page.getByLabel("history box").textContent()
-    console.log(output)
 
     expect(output).toContain("Invalid command. Please try again")
   });
@@ -128,7 +126,6 @@ test.beforeEach(async ({page}) => {
     await page.getByLabel("Submit").click();
 
     let output = await page.getByLabel("history box").textContent()
-    console.log(output)
 
     expect(output).toContain("ERROR: Please load a file before viewing.")
   });
@@ -143,7 +140,6 @@ test.beforeEach(async ({page}) => {
     await page.getByLabel("Submit").click();
 
     let output = await page.getByLabel("history box").textContent()
-    console.log(output)
 
     expect(output).toContain("Invalid search query. Please specify the search type and query")
   });
@@ -163,7 +159,6 @@ test.beforeEach(async ({page}) => {
     await page.getByLabel("Submit").click();
 
     let output = await page.getByLabel("history box").textContent()
-    console.log(output)
 
     expect(output).toContain("File \"csv1.csv\" loaded successfully! :)StateData TypeAverage Weekly EarningsNumber of WorkersEarnings DisparityEmployed PercentRIWhite $1,058.47 395773.6521$1.0075%RIBlack $770.2630424.80376 $0.736%RINative American/American Indian$471.072315.505646$0.450%RIAsian-Pacific Islander $1,080.09 18956.71657$1.024%RIHispanic/Latino$673.1474596.18851$0.6414%RIMultiracial$971.898883.049171$0.922%")
   });
@@ -178,7 +173,6 @@ test.beforeEach(async ({page}) => {
     await page.getByLabel("Submit").click();
 
     let output = await page.getByLabel("history box").textContent()
-    console.log(output)
 
     expect(output).toContain("Invalid file name. Reenter a valid file name.")
   });
@@ -200,7 +194,6 @@ test.beforeEach(async ({page}) => {
     await page.getByLabel("Submit").click();
 
     let searchResponse = await page.getByLabel("history box").textContent();
-    console.log(searchResponse)
     expect(searchResponse).toContain('Cranston') 
     expect(searchResponse).toContain('Cranston77,145.0095,763.0038,269.00')
   });
@@ -308,6 +301,5 @@ test.beforeEach(async ({page}) => {
 
 
     let output = await page.getByLabel("history box").textContent();
-    console.log(output)
     expect(output).toContain('Cranston77,145.0095,763.0038,269.00')
   });

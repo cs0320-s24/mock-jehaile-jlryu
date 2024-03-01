@@ -72,6 +72,8 @@ None
 ## run test
     1. Navigate into the project directory (mock-jehaile-jlryu)
     2. Open the terminal
+    3. Run the command 'npx playwright test'
+    4. (optional) you may have to install playwright test
     
     
 

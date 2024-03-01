@@ -76,7 +76,7 @@ interface FileData {
     : dol_ri_earning_data,
     searchHeader: dol_searchHeader,
     searchIndex:dol_searchIndex,
-    search: mapCSV2
+    search: mapCSV1
 
   };
   var exampleCSV2: FileData = {

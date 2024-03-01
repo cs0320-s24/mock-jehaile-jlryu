@@ -1,6 +1,6 @@
 import '../styles/main.css';
 import '../styles/app.css';
-import { Dispatch, ReactNode, SetStateAction, useState} from 'react';
+import { ReactNode, useState} from 'react';
 import { ControlledInput } from './ControlledInput';
 import { executeCommand } from './REPLCommands'; 
 
@@ -15,7 +15,7 @@ export function REPLInput(props: REPLInputProps) {
     const [commandString, setCommandString] = useState<string>('');
     const backgroundClass = props.mode === 'brief' ? 'brief-background' : 'verbose-background';
 
-    const {response} = executeCommand(commandString);
+    const response = executeCommand(commandString);
 
     
     function handleSubmit(text: string) {

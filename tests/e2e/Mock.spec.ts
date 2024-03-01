@@ -32,3 +32,53 @@ test.beforeEach(async ({page}) => {
     const mock_input = `Awesome command`;
     await expect(page.getByLabel('Command input')).toHaveValue(mock_input);
   });
+
+  test('when I type in "mode" the mode changes', async ({ page }) => {
+
+  })
+
+  test('when I change the mode the display shows both commands and output', async ({ page }) => {
+    
+  })
+
+  test('when I input an invalid command I am returned an error output', async ({ page }) => {
+    
+  })
+
+  test('when I type in "view" before "load_file" I get an error output', async ({ page }) => {
+    
+  })
+
+  test('when I search before load_file I get an error output', async ({ page }) => {
+    
+  })
+
+  test('I can type "load_file" and "view" and see a csv', async ({ page }) => {
+    
+  })
+
+  test('I get returned an error if I try to load an invalid file', async ({ page }) => {
+    
+  })
+
+  test('I can search by column name and value', async ({ page }) => { 
+    //search Employed Percent 4%, search City/Town Cranston
+    
+  })
+
+  test('I can search by column index and value', async ({ page }) => { 
+    //search 1 Black, search 1 94,571.00
+    
+  })
+
+  test('I can load a file then load another file and view the second', async ({ page }) => { 
+    
+  })
+  test('search that enters an empty result', async ({ page }) => { 
+    //ADD FUNCTIONALITY FOR THIS
+    
+  })
+
+  test('test a dataset with only one column', async ({ page }) => { 
+    //how???//whhy???
+  })

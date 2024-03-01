@@ -36,10 +36,10 @@ test.beforeEach(async ({page}) => {
     
     await page.getByLabel("Submit").click();
 
-    let output = page.getByLabel("history box")
-    let outputSwitch = output.textContent();
+    let output = await page.getByLabel("history box")
+    let outputSwitch = await output.textContent();
 
-    console.log(outputSwitch)
+    expect(outputSwitch).toContain('Command: modeOutput: mode switched') 
   });
 
   test('when I change the mode the display shows both commands and output', async ({ page }) => {
@@ -53,8 +53,8 @@ test.beforeEach(async ({page}) => {
     await page.getByLabel('Command input').fill('load_file csv1.csv');
     await page.getByLabel("Submit").click(); 
     let loadResponse = await page.getByLabel("history box").textContent();
-    console.log(loadResponse)
 
+    expect(loadResponse).toContain("Command: modeOutput: mode switchedCommand: load_file csv1.csvOutput: File \"csv1.csv\" loaded successfully! :)")
   });
 
   test('I can change the mode and run a search', async ({ page }) => {
@@ -221,6 +221,7 @@ test.beforeEach(async ({page}) => {
     expect(viewResponse).toContain('IPEDS') 
     expect(viewResponse).toContain('University327brown-university0.105791006Men1White20202020217156Brown') 
   });
+
   test('search that enters an empty result', async ({ page }) => { 
     await page.getByLabel('Login').click();
     await page.getByLabel('Command input').click();
@@ -235,3 +236,39 @@ test.beforeEach(async ({page}) => {
 
   });
 
+  test('i can load and view multiple files in succession', async ({ page }) => { 
+    await page.getByLabel('Login').click();
+
+    await page.getByLabel('Command input').click();
+    await page.getByLabel('Command input').fill('load_file csv3.csv');
+    await page.getByLabel("Submit").click();
+
+    await page.getByLabel('Command input').click();
+    await page.getByLabel('Command input').fill('search City/Town Cranston');
+    await page.getByLabel("Submit").click();
+
+    let searchResponse = await page.getByLabel("history box").textContent();
+    expect(searchResponse).toContain('Cranston');
+    expect(searchResponse).toContain('Cranston77,145.0095,763.0038,269.00');
+
+    await page.getByLabel('Command input').click();
+    await page.getByLabel('Command input').fill('load_file csv1.csv');
+    await page.getByLabel("Submit").click();
+
+    await page.getByLabel('Command input').click();
+    await page.getByLabel('Command input').fill('view');
+    await page.getByLabel("Submit").click();
+
+    await page.getByLabel('Command input').click();
+    await page.getByLabel('Command input').fill('mode');
+    await page.getByLabel("Submit").click();
+
+    await page.getByLabel('Command input').click();
+    await page.getByLabel('Command input').fill('view');
+    await page.getByLabel("Submit").click();
+
+
+    let output = await page.getByLabel("history box").textContent();
+    console.log(output)
+    expect(output).toContain('Cranston77,145.0095,763.0038,269.00')
+  });

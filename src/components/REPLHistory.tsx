@@ -22,10 +22,9 @@ export function REPLHistory(props: REPLHistoryProps) {
         {props.history.map((entry, index) => (
         <div key={index}>
           {props.mode === 'verbose' && <p>Command: {entry.command}</p>}
-          
+          {props.mode === 'verbose' && <p>Output: </p>}
           {Array.isArray(entry.output) ? (
             <div>
-              {props.mode === 'verbose' && <p>Output:</p>}
               <table>
                 <tbody>
                   {entry.output.map((row, rowIndex) => (

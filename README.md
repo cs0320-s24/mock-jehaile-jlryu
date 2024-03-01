@@ -55,10 +55,10 @@ The test suite for this application covers various functionalities to ensure the
     4. Run the command 'npm start'
     5. Navigate to the url: http://localhost:8000/
     6. Click the login in button to interact with the data
-    7. Type in load_file <csv file>, to load. We have mocked data for csv1.csv, csv2.csv and csv3.csv.
+    7. Type in load_file <csv file>, to load. We have mocked data for csv1.csv, csv2.csv and    csv3.csv.
     8. AFTER loading a file you can either view or search it. 
     9. To view, simply type view after a file is loaded with a success message.
-    10. To search, we offer two options of searching functionality: view by column header name or view by column index. 
+    10. To search, we offer two options of searching functionality: view by column header name or view by column index. We have six mocked data responses. 
         10.1.1 To search csv1.csv by column index: 'search 1 Black' should output RI Black $770.26 30424.80376, .73, 6%
         10.1.2 To search csv1.csv by column header: 'search Employed Percent 4%' should output
 

@@ -31,7 +31,7 @@ export function REPLHistory(props: REPLHistoryProps) {
               </table>
             </div>
           ) : (
-            <p>Output: {entry.output}</p>
+            <p>{entry.output}</p>
           )}
         </div>
       ))}

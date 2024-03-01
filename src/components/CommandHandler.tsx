@@ -1,5 +1,5 @@
-import {fileDataComponent, fileData} from "/Users/jiminryu/Desktop/cs0320/mock-jehaile-jlryu/data/MockedJSON"; //for jimin
-// import {fileDataComponent, fileData} from "/Users/jowet/Desktop/cs320/mock-jehaile-jlryu/data/MockedJSON"; // for jo
+// import {fileDataComponent, fileData} from "/Users/jiminryu/Desktop/cs0320/mock-jehaile-jlryu/data/MockedJSON"; //for jimin
+import {fileDataComponent, fileData} from "/Users/jowet/Desktop/cs320/mock-jehaile-jlryu/data/MockedJSON"; // for jo
 
 /**
  * Our response interface which holds the args and response which can be strings, array of strings, or
@@ -79,8 +79,11 @@ const search: REPLFunction = (args: string[]): string | string[][] | undefined =
         if(loadedFile.search.get(args[args.length - 1]) === undefined){
             return "Invalid search query. Please specify the search type and query."
         }
+        if(loadedFile.correctCol.get(args[1]) === args[args.length-1]){
+            return loadedFile.search.get(args[args.length - 1]);
 
-        return loadedFile.search.get(args[args.length - 1]);
+        }
+        return "Invalid search query."
     }
 
 export {load, view, search}

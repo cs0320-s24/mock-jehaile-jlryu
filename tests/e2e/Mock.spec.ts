@@ -13,41 +13,58 @@ test.beforeEach(async ({page}) => {
     await expect(page.getByLabel("Login")).toBeVisible();
   });
 
-  // test('on page load, i dont see the input box until login', async ({ page }) => {
-  //   // Notice: http, not https! Our front-end is not set up for HTTPs.
-  //   await expect(page.getByLabel('Sign Out')).not.toBeVisible();
-  //   await expect(page.getByLabel('Command input')).not.toBeVisible();
+  test('on page load, i dont see the input box until login', async ({ page }) => {
+    // Notice: http, not https! Our front-end is not set up for HTTPs.
+    await expect(page.getByLabel('Sign Out')).not.toBeVisible();
+    await expect(page.getByLabel('Command input')).not.toBeVisible();
     
-  //   // click the login button
-  //   await page.getByLabel('Login').click();
-  //   await expect(page.getByLabel('Sign Out')).toBeVisible();
-  //   await expect(page.getByLabel('Command input')).toBeVisible();
-  // });
+    // click the login button
+    await page.getByLabel('Login').click();
+    await expect(page.getByLabel('Sign Out')).toBeVisible();
+    await expect(page.getByLabel('Command input')).toBeVisible();
+  });
 
-  // test('after I type into the input box, its text changes', async ({ page }) => {
-  //   await page.getByLabel('Login').click();
-  //   await page.getByLabel('Command input').click();
-  //   await page.getByLabel('Command input').fill('Awesome command');
+  test('after I type into the input box, its text changes', async ({ page }) => {
+    await page.getByLabel('Login').click();
+    await page.getByLabel('Command input').click();
+    await page.getByLabel('Command input').fill('Awesome command');
   
-  //   const mock_input = `Awesome command`;
-  //   await expect(page.getByLabel('Command input')).toHaveValue(mock_input);
-  // });
+    const mock_input = `Awesome command`;
+    await expect(page.getByLabel('Command input')).toHaveValue(mock_input);
+  });
 
-  // test('when I type in "mode" the mode changes', async ({ page }) => {
-  //   await page.getByLabel('Login').click();
-  //   await page.getByLabel('Command input').click();
-  //   await page.getByLabel('Command input').fill('mode');
+  test('when I type in "mode" the mode changes', async ({ page }) => {
+    await page.getByLabel('Login').click();
+    await page.getByLabel('Command input').click();
+    await page.getByLabel('Command input').fill('mode');
     
-  //   await page.getByLabel("Submit").click();
+    await page.getByLabel("Submit").click();
 
-  //   let mode = page.getByLabel("history box")
+    let mode = page.getByLabel("history box")
 
-  //   expect(mode).toBe('verbose')
-  // });
+    // console.log("printing mode", await mode.textContent());
 
-  // test('when I change the mode the display shows both commands and output', async ({ page }) => {
+    console.log("print", mode) //the expect statement prints out history box
+
+    expect(mode).toBe('verbose') //you had verbose before but it prints out mode switched
+  });
+
+  test('when I change the mode the display shows both commands and output', async ({ page }) => {
+    await page.getByLabel('Login').click();
+    await page.getByLabel('Command input').click();
+    await page.getByLabel('Command input').fill('mode');
     
-  // });
+    await page.getByLabel("Submit").click();
+
+    await page.getByLabel('Command input').click();
+    await page.getByLabel('Command input').fill('load_file csv1.csv');
+    await page.getByLabel("Submit").click();
+    
+
+
+
+    
+  });
 
   // test('when I input an invalid command I am returned an error output', async ({ page }) => {
     

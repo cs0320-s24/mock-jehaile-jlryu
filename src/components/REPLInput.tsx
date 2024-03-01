@@ -16,7 +16,6 @@ export function REPLInput(props: REPLInputProps) {
     const backgroundClass = props.mode === 'brief' ? 'brief-background' : 'verbose-background';
 
     const response = executeCommand(commandString);
-
     
     function handleSubmit(text: string) {
 

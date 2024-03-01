@@ -36,9 +36,9 @@ test.beforeEach(async ({page}) => {
     await page.getByLabel('Command input').click();
     await page.getByLabel('Command input').fill('mode');
     
-    //line to press enter
+    await page.getByLabel("Submit").click();
 
-    let mode = 
+    let mode = page.getByLabel("history box")
 
     expect(mode).toBe('verbose')
   })

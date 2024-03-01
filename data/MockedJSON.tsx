@@ -1,12 +1,7 @@
 import dol_ri_earning_data from './dol_ri_earnings_disparity/dol_ri_earnings_disparity.json';
 import postsecondary_education from "./postsecondary_education/postsecondary_education.json";
 import ri_city_and_town_income from "./ri_city_and_town_income/ri_city_and_town_income.json";
-import dol_searchIndex from "./dol_ri_earnings_disparity/dol_searchColumn.json";
-import postsecondary_searchIndex from "./postsecondary_education/postsecondary_searchColumn.json";
-import ri_searchIndex from "./ri_city_and_town_income/ri_searchColumn.json"
-import dol_searchHeader from "./dol_ri_earnings_disparity/dol_searchHeader.json";
-import postsecondary_searchHeader from "./dol_ri_earnings_disparity/dol_searchHeader.json";
-import ri_searchHeader from "./ri_city_and_town_income/ri_searchHeader.json";
+
 
 const mapCSV1 = new Map<string, string[][]>();
 
@@ -19,7 +14,6 @@ const valueIndex12 = [["RI","Black"," $770.26" ,"30424.80376"," $0.73" ,"6%"]]
 
 mapCSV1.set(keyHeader11,valueHeader11);
 mapCSV1.set(keyIndex12,valueIndex12);
-
 
 
 const keyHeader21 = "emory-university";
@@ -61,31 +55,21 @@ interface FileData {
     filePath: string;
     isLoaded: boolean;
     fileContent: string[][]
-    searchHeader: string[][]
-    searchIndex: string[][]
     search: Map<string, string[][]>;
 
   }
 
   var exampleCSV1: FileData = {
     filePath: 'csv1.csv',
-
     isLoaded: false,
-    
-    fileContent
-    : dol_ri_earning_data,
-    searchHeader: dol_searchHeader,
-    searchIndex:dol_searchIndex,
+    fileContent: dol_ri_earning_data,
     search: mapCSV1
 
   };
   var exampleCSV2: FileData = {
     filePath: 'csv2.csv',
     isLoaded: false,
-    
     fileContent: postsecondary_education,
-    searchHeader: postsecondary_searchHeader,
-    searchIndex:postsecondary_searchIndex,
     search: mapCSV2
 
 
@@ -94,8 +78,6 @@ interface FileData {
     filePath: 'csv3.csv',
     isLoaded: false,
     fileContent: ri_city_and_town_income,
-    searchHeader: ri_searchHeader,
-    searchIndex: ri_searchIndex,
     search: mapCSV3
 
   };

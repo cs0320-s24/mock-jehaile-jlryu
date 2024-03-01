@@ -10,8 +10,6 @@ interface ControlledInputProps {
     setValue: Dispatch<SetStateAction<string>>,
     ariaLabel: string 
     onKeyDown?: (event: React.KeyboardEvent<Element>) => void; // Use onKeyDown
-
-    // onKeyPress?: (event: React.KeyboardEvent<Element>) => void
     }
   
   // Input boxes contain state. We want to make sure React is managing that state,

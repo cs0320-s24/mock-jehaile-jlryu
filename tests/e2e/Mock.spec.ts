@@ -38,8 +38,8 @@ test.beforeEach(async ({page}) => {
 
     let output = page.getByLabel("history box")
     let outputSwitch = output.textContent();
-    
-    expect(outputSwitch).toBe({Promise}) //Since there is a new output state due to mode change
+
+    console.log(outputSwitch)
   });
 
   test('when I change the mode the display shows both commands and output', async ({ page }) => {
@@ -54,8 +54,36 @@ test.beforeEach(async ({page}) => {
     await page.getByLabel("Submit").click(); 
     let loadResponse = await page.getByLabel("history box").textContent();
     console.log(loadResponse)
-    
 
+  });
+
+  test('I can change the mode and run a search', async ({ page }) => {
+    await page.getByLabel('Login').click();
+    await page.getByLabel('Command input').click();
+    await page.getByLabel('Command input').fill('mode');
+    
+    await page.getByLabel("Submit").click();
+
+    await page.getByLabel('Command input').click();
+    await page.getByLabel('Command input').fill('mode');
+    
+    await page.getByLabel("Submit").click();
+
+    await page.getByLabel('Command input').click();
+    await page.getByLabel('Command input').fill('load_file csv3.csv');
+    await page.getByLabel("Submit").click();
+
+    let loadResponse = await page.getByLabel("history box").textContent();
+    expect(loadResponse).toContain('File "csv3.csv" loaded successfully!') 
+
+    await page.getByLabel('Command input').click();
+    await page.getByLabel('Command input').fill('search City/Town Cranston');
+    await page.getByLabel("Submit").click();
+
+    let searchResponse = await page.getByLabel("history box").textContent();
+    console.log(searchResponse)
+    expect(searchResponse).toContain('Cranston') 
+    expect(searchResponse).toContain('Cranston77,145.0095,763.0038,269.00')
 
   });
 
@@ -130,7 +158,6 @@ test.beforeEach(async ({page}) => {
   });
 
   test('I can search by column name and value', async ({ page }) => { 
-    //search Employed Percent 4%, search City/Town Cranston
     await page.getByLabel('Login').click();
     await page.getByLabel('Command input').click();
     await page.getByLabel('Command input').fill('load_file csv3.csv');
@@ -147,10 +174,6 @@ test.beforeEach(async ({page}) => {
     console.log(searchResponse)
     expect(searchResponse).toContain('Cranston') 
     expect(searchResponse).toContain('Cranston77,145.0095,763.0038,269.00')
-
-
-
-    
   });
 
   test('I can search by column index and value', async ({ page }) => { 

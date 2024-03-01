@@ -1,4 +1,6 @@
 import { expect, test } from "@playwright/test";
+import { REPLInput, REPLInputProps } from '/Users/jiminryu/Desktop/cs0320/mock-jehaile-jlryu/src/components/REPLInput.tsx';
+import {REPLHistory} from '/Users/jiminryu/Desktop/cs0320/mock-jehaile-jlryu/src/components/REPLHistory.tsx'
 
 test.beforeEach(async ({page}) => {
     await page.goto("http://localhost:8000/");
@@ -6,13 +8,11 @@ test.beforeEach(async ({page}) => {
 
   test('on page load, i see a login button', async ({ page }) => {
     // Notice: http, not https! Our front-end is not set up for HTTPs.
-    await page.goto("http://localhost:8000/");
     await expect(page.getByLabel("Login")).toBeVisible();
   })
 
   test('on page load, i dont see the input box until login', async ({ page }) => {
     // Notice: http, not https! Our front-end is not set up for HTTPs.
-    await page.goto('http://localhost:8000/');
     await expect(page.getByLabel('Sign Out')).not.toBeVisible();
     await expect(page.getByLabel('Command input')).not.toBeVisible();
     
@@ -23,8 +23,6 @@ test.beforeEach(async ({page}) => {
   })
 
   test('after I type into the input box, its text changes', async ({ page }) => {
-
-    await page.goto('http://localhost:8000/');
     await page.getByLabel('Login').click();
     await page.getByLabel('Command input').click();
     await page.getByLabel('Command input').fill('Awesome command');
@@ -34,7 +32,15 @@ test.beforeEach(async ({page}) => {
   });
 
   test('when I type in "mode" the mode changes', async ({ page }) => {
+    await page.getByLabel('Login').click();
+    await page.getByLabel('Command input').click();
+    await page.getByLabel('Command input').fill('mode');
+    
+    //line to press enter
 
+    let mode = 
+
+    expect(mode).toBe('verbose')
   })
 
   test('when I change the mode the display shows both commands and output', async ({ page }) => {

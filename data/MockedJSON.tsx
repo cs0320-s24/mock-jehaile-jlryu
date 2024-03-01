@@ -2,9 +2,7 @@ import dol_ri_earning_data from './dol_ri_earnings_disparity/dol_ri_earnings_dis
 import postsecondary_education from "./postsecondary_education/postsecondary_education.json";
 import ri_city_and_town_income from "./ri_city_and_town_income/ri_city_and_town_income.json";
 
-
 const mapCSV1 = new Map<string, string[][]>();
-
 
 const keyHeader11 = "4%"
 const valueHeader11= [["RI","Asian-Pacific Islander"," $1,080.09 ","18956.71657", "$1.02" ,"4%"]]
@@ -15,6 +13,15 @@ const valueIndex12 = [["RI","Black"," $770.26" ,"30424.80376"," $0.73" ,"6%"]]
 mapCSV1.set(keyHeader11,valueHeader11);
 mapCSV1.set(keyIndex12,valueIndex12);
 
+const mapCSV1Col = new Map<string, string>();
+
+const colCSVk = "Employed Percent"
+const colCSVv = "%4"
+const colCSVk2 = "1"
+const colCSVv2 = "Black"
+
+mapCSV1Col.set(colCSVk,colCSVv);
+mapCSV1Col.set(colCSVk2,colCSVv2);
 
 const keyHeader21 = "emory-university";
 const valueHeader21 = [
@@ -32,6 +39,16 @@ mapCSV2.set(keyHeader21, valueHeader21);
 
 mapCSV2.set(keyIndex22, valueIndex22);
 
+const mapCSV2Col = new Map<string, string>();
+
+const colCSV2k = "Slug University"
+const colCSV2v = "emory-university"
+const colCSV2k2 = "0"
+const colCSV2v2 = "White"
+
+mapCSV2Col.set(colCSV2k,colCSV2v);
+mapCSV2Col.set(colCSV2k2,colCSV2v2);
+
 
 const mapCSV3 = new Map<string, string[][]>();
 
@@ -44,10 +61,18 @@ const valueIndex32= [    ["Lincoln","94,571.00","115,975.00","44,135.00"],
     ["Westerly","94,571.00","107,013.00","46,913.00"],
     ["Woonsocket","94,571.00","58,896.00","26,561.00"]];
 
-
-
 mapCSV3.set(keyHeader31, valueHeader31);
 mapCSV3.set(keyIndex32, valueIndex32);
+
+const mapCSV3Col = new Map<string, string>();
+
+const colCSV3k = "City/Town"
+const colCSV3v = "Cranston"
+const colCSV3k2 = "1"
+const colCSV3v2 = "94,571.00"
+
+mapCSV3Col.set(colCSV3k,colCSV3v);
+mapCSV3Col.set(colCSV3k2,colCSV3v2);
 
 
 
@@ -56,6 +81,7 @@ interface FileData {
     isLoaded: boolean;
     fileContent: string[][]
     search: Map<string, string[][]>;
+    correctCol: Map<string, string>;
 
   }
 
@@ -63,14 +89,16 @@ interface FileData {
     filePath: 'csv1.csv',
     isLoaded: false,
     fileContent: dol_ri_earning_data,
-    search: mapCSV1
+    search: mapCSV1,
+    correctCol: mapCSV1Col
 
   };
   var exampleCSV2: FileData = {
     filePath: 'csv2.csv',
     isLoaded: false,
     fileContent: postsecondary_education,
-    search: mapCSV2
+    search: mapCSV2,
+    correctCol: mapCSV2Col
 
 
   };  
@@ -78,7 +106,8 @@ interface FileData {
     filePath: 'csv3.csv',
     isLoaded: false,
     fileContent: ri_city_and_town_income,
-    search: mapCSV3
+    search: mapCSV3,
+    correctCol: mapCSV3Col
 
   };
 

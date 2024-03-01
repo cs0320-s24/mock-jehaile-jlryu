@@ -36,12 +36,19 @@ The project in discussion is a command-line interface application built around a
    When accessing csv's for searching, we utilized maps as storage and keys to indicate search queries, so that searching is done in constant time.
 
 # Errors/Bugs
-None
+
+There are no known bugs. We have an syntax error in our REPL.tsx <REPLHistory history={history} mode={mode} /> under mode stating that Type 'string' is not assignable to type '"brief" | "verbose"'.ts(2322). However as this did not impact the functionality of our program and mode works successfully we did not see this as that problematic. 
+
+
+
 # Tests
+
+The test suite for this application covers various functionalities to ensure the correct behavior of the Mock site. These tests utilize Playwright to simulate user interactions and verify the expected outcomes. Tests include verifying the presence of UI elements such as the login button and input box, as well as testing dynamic changes in the input box content. For example, one test ensures that the input box's text changes correctly after typing a command. Additionally, the tests cover functionality such as changing the mode, loading and viewing files, and searching for data. There are tests to verify that the mode changes correctly when the "mode" command is typed, and that files can be loaded and viewed successfully. The test suite also includes cases to handle invalid commands and edge cases, such as attempting to search without specifying the search type and query. Each test case is designed to verify a specific feature or behavior, providing comprehensive coverage of the application's functionality. The tests also check that error descriptions are outputted when necessary. We have 48 passing test cases.
 
 # How to
 
 ## run mock:
+
     1. Navigate into the project directory (mock-jehaile-jlryu)
     2. Open the terminal
     3. Run the command 'npm install'
@@ -70,6 +77,7 @@ None
         ["Woonsocket","94,571.00","58,896.00","26,561.00"]
     11. To switch modes type in mode, we start on brief. You should expect to see a color change of the box (black-verbose & gray-brief) and see 'mode switched' outputted
 ## run test
+
     1. Navigate into the project directory (mock-jehaile-jlryu)
     2. Open the terminal
     3. Run the command 'npx playwright test'
@@ -78,5 +86,6 @@ None
     
 
 # Collaboration
+
+*(state all of your sources of collaboration past your project partner. Please refer to the course's collaboration policy for any further questions.)* 
 We collaborated with each other (Jimin and Jowet) on this project and went to one debugging session.
-*(state all of your sources of collaboration past your project partner. Please refer to the course's collaboration policy for any further questions.)*

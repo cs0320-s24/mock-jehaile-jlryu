@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
-import { REPLInput, REPLInputProps } from '/Users/jiminryu/Desktop/cs0320/mock-jehaile-jlryu/src/components/REPLInput.tsx';
-import {REPLHistory} from '/Users/jiminryu/Desktop/cs0320/mock-jehaile-jlryu/src/components/REPLHistory.tsx'
+// import { REPLInput, REPLInputProps } from '/Users/jiminryu/Desktop/cs0320/mock-jehaile-jlryu/src/components/REPLInput.tsx';
+// import {REPLHistory} from '/Users/jiminryu/Desktop/cs0320/mock-jehaile-jlryu/src/components/REPLHistory.tsx'
 
 test.beforeEach(async ({page}) => {
     await page.goto("http://localhost:8000/");

@@ -84,5 +84,5 @@ interface FileData {
 
 const fileDataList: FileData[] = [exampleCSV1, exampleCSV2, exampleCSV3];
 
-export const fileDataArray = fileDataList;
+export const fileDataComponent = fileDataList;
 export type fileData = FileData;
